@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace CqrsEs
 {
-    public class Level : ILevel
+    public class Level : Entity, ILevel
     {
         private LevelId id;
         private string name;
@@ -10,17 +10,6 @@ namespace CqrsEs
         public Level(LevelId id, StructureId ownerId, string name)
         {
             Raise(new LevelCreatedEvent(ownerId, id, name));
-        }
-
-        private void Raise(IDomainEvent evt)
-        {
-            ApplyLocal(evt);
-            DomainEvents.Raise((dynamic)evt);
-        }
-
-        private void ApplyLocal(IDomainEvent evt)
-        {
-            Apply((dynamic) evt);
         }
 
         public Level(IEnumerable<IDomainEvent> events)

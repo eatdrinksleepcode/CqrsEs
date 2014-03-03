@@ -24,9 +24,6 @@ namespace CqrsEs
             level.Name.Should().Be(levelName);
 
             result.Should().NotBeNull("domain method should raise event");
-            result.EntityId.Should().Be(levelId);
-            result.StructureId.Should().Be(structureId);
-            result.LevelName.Should().Be(levelName);
         }
 
         [Test]
@@ -44,7 +41,6 @@ namespace CqrsEs
             level.Name.Should().Be("New Name");
 
             result.Should().NotBeNull("domain method should raise event");
-            result.NewName.Should().Be("New Name");
         }
     }
 }

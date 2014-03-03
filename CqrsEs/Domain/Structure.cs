@@ -4,13 +4,18 @@ using System.Linq;
 
 namespace CqrsEs
 {
-    public class Structure : IStructure
+    public class Structure : Entity, IStructure
     {
-        private readonly StructureId id;
+        private StructureId id;
 
         public Structure(StructureId id)
         {
-            this.id = id;
+            Raise(new StructureCreatedEvent(id));
+        }
+
+        public StructureId Id
+        {
+            get { return id; }
         }
 
         public ILevel CreateLevel(string levelName, IEnumerable<ILevel> existingLevels)
@@ -20,6 +25,11 @@ namespace CqrsEs
                 throw new Exception();
             }
             return new Level(new LevelId(), id, levelName);
+        }
+
+        private void Apply(StructureCreatedEvent evt)
+        {
+            this.id = evt.EntityId;
         }
     }
 }

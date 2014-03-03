@@ -33,25 +33,34 @@
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
+    <Reference Include="ReflectionMagic">
+      <HintPath>..\packages\ReflectionMagic.2.0.0\lib\net40\ReflectionMagic.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CreateDraftCommand.cs" />
     <Compile Include="Commands\CreateStructureCommand.cs" />
     <Compile Include="Commands\CreateLevelCommand.cs" />
     <Compile Include="Commands\RenameLevelCommand.cs" />
     <Compile Include="Domain\DomainEvents.cs" />
+    <Compile Include="Domain\DraftCreatedEvent.cs" />
+    <Compile Include="Domain\Entity.cs" />
     <Compile Include="Domain\IDomainEvent.cs" />
     <Compile Include="Domain\IDomainEvent`1.cs" />
     <Compile Include="Domain\ILevel.cs" />
     <Compile Include="Domain\Level.cs" />
-    <Compile Include="Domain\LevelAddedEvent.cs" />
+    <Compile Include="Domain\LevelCreatedEvent.cs" />
     <Compile Include="Domain\LevelId.cs" />
     <Compile Include="Domain\LevelRenamedEvent.cs" />
+    <Compile Include="Domain\Organization.cs" />
     <Compile Include="Domain\Structure.cs" />
+    <Compile Include="Domain\StructureCreatedEvent.cs" />
     <Compile Include="Domain\StructureId.cs" />
     <Compile Include="Repository\DomainRepository.cs" />
+    <Compile Include="Services\CreateDraftCommandHandler.cs" />
     <Compile Include="Services\CreateLevelCommandHandler.cs" />
     <Compile Include="Services\CreateStructureCommandHandler.cs" />
     <Compile Include="Commands\ICommand.cs" />

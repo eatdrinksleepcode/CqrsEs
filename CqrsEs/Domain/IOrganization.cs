@@ -4,6 +4,7 @@ namespace CqrsEs
 {
     public interface IOrganization
     {
-        void CreateStructure(string structureName, IEnumerable<IStructure> structures);
+        IStructure CreateStructure(string structureName, IEnumerable<IStructure> structures);
+        IOrganization CreateDraft();
     }
 }

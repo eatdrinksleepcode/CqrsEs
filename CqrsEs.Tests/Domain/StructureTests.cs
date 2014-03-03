@@ -8,6 +8,25 @@ namespace CqrsEs
     class StructureTests
     {
         [Test]
+        public void ShouldCreateNewStructure()
+        {
+            var structureId = new StructureId();
+
+            StructureCreatedEvent result = null;
+            DomainEvents.Register((StructureCreatedEvent evt) =>
+            {
+                result = evt;
+            });
+
+            var structure = new Structure(structureId);
+
+            structure.Id.Should().Be(structureId);
+
+            result.Should().NotBeNull("domain method should raise event");
+        }
+
+
+        [Test]
         public void ShouldRefuseToCreateLevelWithNonUniqueName()
         {
             var structureId = new StructureId();
