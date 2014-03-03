@@ -1,6 +1,6 @@
 ﻿namespace CqrsEs
 {
-    public class LevelAddedEvent : IDomainEvent
+    public class LevelAddedEvent : IDomainEvent<LevelId>
     {
         private readonly StructureId structureId;
         private readonly LevelId levelId;
@@ -14,7 +14,7 @@
         }
 
         public StructureId StructureId { get { return structureId; } }
-        public LevelId LevelId { get { return levelId; } }
+        public LevelId EntityId { get { return levelId; } }
         public string LevelName { get { return levelName; } }
     }
 }

@@ -23,13 +23,7 @@ namespace CqrsEs
             Apply((dynamic) evt);
         }
 
-        private void Apply(LevelAddedEvent evt)
-        {
-            this.id = evt.LevelId;
-            this.name = evt.LevelName;
-        }
-
-        public Level(IEnumerable<LevelAddedEvent> events)
+        public Level(IEnumerable<IDomainEvent> events)
         {
             foreach (var evt in events)
             {
@@ -45,6 +39,22 @@ namespace CqrsEs
         public string Name
         {
             get { return name; }
+        }
+
+        public void Rename(string newName)
+        {
+            Raise(new LevelRenamedEvent(this.Id, newName));
+        }
+
+        private void Apply(LevelAddedEvent evt)
+        {
+            this.id = evt.EntityId;
+            this.name = evt.LevelName;
+        }
+
+        private void Apply(LevelRenamedEvent evt)
+        {
+            this.name = evt.NewName;
         }
     }
 }

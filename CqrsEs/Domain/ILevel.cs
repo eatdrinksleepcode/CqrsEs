@@ -4,5 +4,6 @@
     {
         LevelId Id { get; }
         string Name { get; }
+        void Rename(string newLevelName);
     }
 }

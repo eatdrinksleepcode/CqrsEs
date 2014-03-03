@@ -14,7 +14,7 @@ namespace CqrsEs
 
         public ILevel GetLevel(LevelId levelId)
         {
-            return new Level(events.OfType<LevelAddedEvent>());
+            return new Level(events.OfType<IDomainEvent<LevelId>>().Where(evt => evt.EntityId == levelId));
         }
     }
 }

@@ -61,6 +61,7 @@
     <Compile Include="Services\AddLevelCommandHandlerTests.cs" />
     <Compile Include="Services\AddStructureCommandHandlerTests.cs" />
     <Compile Include="Services\CommandHandlerTestsBase.cs" />
+    <Compile Include="Services\RenameLevelCommandHandlerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CqrsEs\CqrsEs.csproj">
