@@ -1,8 +1,8 @@
 ﻿namespace CqrsEs
 {
-    public class AddLevelCommandHandler : CommandHandlerBase, IHandleCommand<AddLevelCommand>
+    public class AddLevelCommandHandler : CommandHandlerBase<AddLevelCommand>
     {
-        public void Handle(AddLevelCommand command)
+        public override void Handle(AddLevelCommand command)
         {
             var structure = Repository.GetStructure(command.StructureId);
             var levels = Repository.GetLevels(command.StructureId);

@@ -1,8 +1,8 @@
 ﻿namespace CqrsEs
 {
-    public class AddStructureCommandHandler : CommandHandlerBase, IHandleCommand<AddStructureCommand>
+    public class AddStructureCommandHandler : CommandHandlerBase<AddStructureCommand>
     {
-        public void Handle(AddStructureCommand command)
+        public override void Handle(AddStructureCommand command)
         {
             var organization = Repository.GetOrganization(command.OrganizationId);
             var structures = Repository.GetStructures(command.OrganizationId);
