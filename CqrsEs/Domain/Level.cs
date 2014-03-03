@@ -9,7 +9,7 @@ namespace CqrsEs
 
         public Level(LevelId id, StructureId ownerId, string name)
         {
-            Raise(new LevelAddedEvent(ownerId, id, name));
+            Raise(new LevelCreatedEvent(ownerId, id, name));
         }
 
         private void Raise(IDomainEvent evt)
@@ -46,7 +46,7 @@ namespace CqrsEs
             Raise(new LevelRenamedEvent(this.Id, newName));
         }
 
-        private void Apply(LevelAddedEvent evt)
+        private void Apply(LevelCreatedEvent evt)
         {
             this.id = evt.EntityId;
             this.name = evt.LevelName;

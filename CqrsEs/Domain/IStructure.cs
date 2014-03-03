@@ -4,6 +4,6 @@ namespace CqrsEs
 {
     public interface IStructure
     {
-        void AddLevel(IEnumerable<ILevel> levels, string levelName);
+        ILevel CreateLevel(string levelName, IEnumerable<ILevel> levels);
     }
 }

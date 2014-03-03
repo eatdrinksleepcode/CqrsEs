@@ -58,8 +58,8 @@
     <Compile Include="Domain\LevelTests.cs" />
     <Compile Include="Domain\StructureTests.cs" />
     <Compile Include="Repository\DomainRepositoryTests.cs" />
-    <Compile Include="Services\AddLevelCommandHandlerTests.cs" />
-    <Compile Include="Services\AddStructureCommandHandlerTests.cs" />
+    <Compile Include="Services\CreateLevelCommandHandlerTests.cs" />
+    <Compile Include="Services\CreateStructureCommandHandlerTests.cs" />
     <Compile Include="Services\CommandHandlerTestsBase.cs" />
     <Compile Include="Services\RenameLevelCommandHandlerTests.cs" />
   </ItemGroup>

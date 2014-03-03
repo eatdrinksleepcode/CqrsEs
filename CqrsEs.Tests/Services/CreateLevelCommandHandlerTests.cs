@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace CqrsEs
 {
-    class AddLevelCommandHandlerTests : CommandHandlerTestsBase<AddLevelCommandHandler>
+    class CreateLevelCommandHandlerTests : CommandHandlerTestsBase<CreateLevelCommandHandler>
     {
         [Test]
         public void ShouldExecuteCommandOnDomain()
@@ -17,9 +17,9 @@ namespace CqrsEs
             repository.Setup(repo => repo.GetStructure(structureId)).Returns(structure.Object);
             repository.Setup(repo => repo.GetLevels(structureId)).Returns(levels);
 
-            CreateHandler().Handle(new AddLevelCommand { StructureId = structureId, LevelName = levelName });
+            CreateHandler().Handle(new CreateLevelCommand { StructureId = structureId, LevelName = levelName });
 
-            structure.Verify(o => o.AddLevel(levels, levelName));
+            structure.Verify(o => o.CreateLevel(levelName, levels));
         }
     }
 }

@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace CqrsEs
 {
-    class AddStructureCommandHandlerTests : CommandHandlerTestsBase<AddStructureCommandHandler>
+    class CreateStructureCommandHandlerTests : CommandHandlerTestsBase<CreateStructureCommandHandler>
     {
         [Test]
         public void ShouldExecuteCommandOnDomain()
@@ -17,9 +17,9 @@ namespace CqrsEs
             repository.Setup(repo => repo.GetOrganization(organizationId)).Returns(organization.Object);
             repository.Setup(repo => repo.GetStructures(organizationId)).Returns(structures);
 
-            CreateHandler().Handle(new AddStructureCommand { OrganizationId = organizationId, StructureName = structureName});
+            CreateHandler().Handle(new CreateStructureCommand { OrganizationId = organizationId, StructureName = structureName});
 
-            organization.Verify(o => o.AddStructure(structures, structureName));
+            organization.Verify(o => o.CreateStructure(structureName, structures));
         }
     }
 }

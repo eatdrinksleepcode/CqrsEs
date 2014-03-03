@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace CqrsEs
 {
-    public class Structure
+    public class Structure : IStructure
     {
         private readonly StructureId id;
 
@@ -13,7 +13,7 @@ namespace CqrsEs
             this.id = id;
         }
 
-        public ILevel AddLevel(string levelName, IEnumerable<ILevel> existingLevels)
+        public ILevel CreateLevel(string levelName, IEnumerable<ILevel> existingLevels)
         {
             if (existingLevels.Any(l => l.Name == levelName))
             {

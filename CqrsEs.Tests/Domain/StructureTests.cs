@@ -7,28 +7,22 @@ namespace CqrsEs
 {
     class StructureTests
     {
-        [SetUp]
-        public void Before()
-        {
-            DomainEvents.ClearCallbacks();
-        }
-
         [Test]
-        public void ShouldRefuseToAddLevelWithNonUniqueName()
+        public void ShouldRefuseToCreateLevelWithNonUniqueName()
         {
             var structureId = new StructureId();
             const string levelName = "New Level";
 
             var structure = new Structure(structureId);
-            var existingLevels = new[] { structure.AddLevel(levelName, Enumerable.Empty<ILevel>()) };
+            var existingLevels = new[] { structure.CreateLevel(levelName, Enumerable.Empty<ILevel>()) };
 
-            LevelAddedEvent result = null;
-            DomainEvents.Register((LevelAddedEvent evt) =>
+            LevelCreatedEvent result = null;
+            DomainEvents.Register((LevelCreatedEvent evt) =>
             {
                 result = evt;
             });
 
-            structure.Invoking(it => it.AddLevel(levelName, existingLevels)).ShouldThrow<Exception>("level names must be unique");
+            structure.Invoking(it => it.CreateLevel(levelName, existingLevels)).ShouldThrow<Exception>("level names must be unique");
             result.Should().BeNull("domain event should not be raised if validation fails");
         }
 
@@ -38,9 +32,9 @@ namespace CqrsEs
             var structureId = new StructureId();
 
             var structure = new Structure(structureId);
-            var level1 = structure.AddLevel("Level 1", Enumerable.Empty<ILevel>());
+            var level1 = structure.CreateLevel("Level 1", Enumerable.Empty<ILevel>());
             var existingLevels = new[] { level1 };
-            var level2 = structure.AddLevel("Level 2", existingLevels);
+            var level2 = structure.CreateLevel("Level 2", existingLevels);
 
             level1.Id.Should().NotBe(level2.Id);
         }

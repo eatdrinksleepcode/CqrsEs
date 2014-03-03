@@ -6,14 +6,14 @@ namespace CqrsEs
     class LevelTests
     {
         [Test]
-        public void ShouldAddNewLevel()
+        public void ShouldCreateNewLevel()
         {
             var levelId = new LevelId();
             var structureId = new StructureId();
             const string levelName = "New Level";
 
-            LevelAddedEvent result = null;
-            DomainEvents.Register((LevelAddedEvent evt) =>
+            LevelCreatedEvent result = null;
+            DomainEvents.Register((LevelCreatedEvent evt) =>
             {
                 result = evt;
             });
