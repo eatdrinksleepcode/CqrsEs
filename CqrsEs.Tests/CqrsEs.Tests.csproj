@@ -55,7 +55,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\LevelTests.cs" />
     <Compile Include="Domain\StructureTests.cs" />
+    <Compile Include="Repository\DomainRepositoryTests.cs" />
     <Compile Include="Services\AddLevelCommandHandlerTests.cs" />
     <Compile Include="Services\AddStructureCommandHandlerTests.cs" />
     <Compile Include="Services\CommandHandlerTestsBase.cs" />

@@ -14,26 +14,6 @@ namespace CqrsEs
         }
 
         [Test]
-        public void ShouldAddNewLevelWithUniqueName()
-        {
-            var structureId = new StructureId();
-            const string levelName = "New Level";
-
-            LevelAddedEvent result = null;
-            DomainEvents.Register((LevelAddedEvent evt) =>
-            {
-                result = evt;
-            });
-
-            var structure = new Structure(structureId);
-            structure.AddLevel(levelName, Enumerable.Empty<ILevel>());
-
-            result.Should().NotBeNull();
-            result.StructureId.Should().Be(structureId);
-            result.LevelName.Should().Be(levelName);
-        }
-
-        [Test]
         public void ShouldRefuseToAddLevelWithNonUniqueName()
         {
             var structureId = new StructureId();
@@ -50,6 +30,19 @@ namespace CqrsEs
 
             structure.Invoking(it => it.AddLevel(levelName, existingLevels)).ShouldThrow<Exception>("level names must be unique");
             result.Should().BeNull("domain event should not be raised if validation fails");
+        }
+
+        [Test]
+        public void ShouldGenerateUniqueIdForNewLevel()
+        {
+            var structureId = new StructureId();
+
+            var structure = new Structure(structureId);
+            var level1 = structure.AddLevel("Level 1", Enumerable.Empty<ILevel>());
+            var existingLevels = new[] { level1 };
+            var level2 = structure.AddLevel("Level 2", existingLevels);
+
+            level1.Id.Should().NotBe(level2.Id);
         }
     }
 }

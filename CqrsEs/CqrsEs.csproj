@@ -48,6 +48,7 @@
     <Compile Include="Domain\LevelId.cs" />
     <Compile Include="Domain\Structure.cs" />
     <Compile Include="Domain\StructureId.cs" />
+    <Compile Include="Repository\DomainRepository.cs" />
     <Compile Include="Services\AddLevelCommandHandler.cs" />
     <Compile Include="Services\AddStructureCommandHandler.cs" />
     <Compile Include="Commands\ICommand.cs" />
