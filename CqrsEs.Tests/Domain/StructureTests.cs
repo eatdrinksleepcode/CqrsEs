@@ -39,14 +39,15 @@ namespace CqrsEs
             var structureId = new StructureId();
             const string levelName = "New Level";
 
+            var structure = new Structure(structureId);
+            var existingLevels = new[] { structure.AddLevel(levelName, Enumerable.Empty<ILevel>()) };
+
             LevelAddedEvent result = null;
             DomainEvents.Register((LevelAddedEvent evt) =>
             {
                 result = evt;
             });
 
-            var structure = new Structure(structureId);
-            var existingLevels = new[] {new Level(levelName)};
             structure.Invoking(it => it.AddLevel(levelName, existingLevels)).ShouldThrow<Exception>("level names must be unique");
             result.Should().BeNull("domain event should not be raised if validation fails");
         }

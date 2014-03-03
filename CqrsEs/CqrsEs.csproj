@@ -43,6 +43,7 @@
     <Compile Include="Domain\DomainEvents.cs" />
     <Compile Include="Domain\IDomainEvent.cs" />
     <Compile Include="Domain\ILevel.cs" />
+    <Compile Include="Domain\Level.cs" />
     <Compile Include="Domain\LevelAddedEvent.cs" />
     <Compile Include="Domain\LevelId.cs" />
     <Compile Include="Domain\Structure.cs" />
