@@ -1,8 +1,7 @@
 namespace CqrsEs
 {
-    public class CreateStructureCommand : ICommand
+    public class CreateStructureCommand : OrganizationCommandBase
     {
-        public OrganizationId OrganizationId { get; set; }
         public string StructureName { get; set; }
     }
 }

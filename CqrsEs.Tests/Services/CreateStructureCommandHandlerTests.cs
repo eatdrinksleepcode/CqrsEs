@@ -15,7 +15,7 @@ namespace CqrsEs
             var organization = new Mock<IOrganization>();
             var structures = new[] {kernel.Get<IStructure>()};
             repository.Setup(repo => repo.GetOrganization(organizationId)).Returns(organization.Object);
-            repository.Setup(repo => repo.GetStructures(organizationId)).Returns(structures);
+            repository.Setup(repo => repo.GetStructures()).Returns(structures);
 
             CreateHandler().Handle(new CreateStructureCommand { OrganizationId = organizationId, StructureName = structureName});
 

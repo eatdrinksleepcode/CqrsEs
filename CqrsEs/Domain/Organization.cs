@@ -12,6 +12,11 @@ namespace CqrsEs
             Raise(new DraftCreatedEvent(id, sourceId));
         }
 
+        public Organization(IEnumerable<IDomainEvent<OrganizationId>> events)
+            : base(events)
+        {
+        }
+
         public IStructure CreateStructure(string structureName, IEnumerable<IStructure> structures)
         {
             return new Structure(new StructureId());

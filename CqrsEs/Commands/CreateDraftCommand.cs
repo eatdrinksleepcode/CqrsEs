@@ -1,7 +1,6 @@
 ﻿namespace CqrsEs
 {
-    public class CreateDraftCommand : ICommand
+    public class CreateDraftCommand : OrganizationCommandBase
     {
-        public OrganizationId SourceId { get; set; }
     }
 }

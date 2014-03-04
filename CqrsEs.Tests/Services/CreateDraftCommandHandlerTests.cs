@@ -14,7 +14,7 @@ namespace CqrsEs
             var sourceOrganization = new Mock<IOrganization>();
             repository.Setup(repo => repo.GetOrganization(sourceOrganizationId)).Returns(sourceOrganization.Object);
 
-            CreateHandler().Handle(new CreateDraftCommand { SourceId = sourceOrganizationId });
+            CreateHandler().Handle(new CreateDraftCommand { OrganizationId = sourceOrganizationId });
 
             sourceOrganization.Verify(o => o.CreateDraft());
         }

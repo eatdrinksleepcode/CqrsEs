@@ -13,6 +13,11 @@ namespace CqrsEs
             Raise(new StructureCreatedEvent(id));
         }
 
+        public Structure(IEnumerable<IDomainEvent<StructureId>> events)
+            : base(events)
+        {
+        }
+
         public StructureId Id
         {
             get { return id; }

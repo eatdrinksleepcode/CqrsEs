@@ -4,7 +4,7 @@
     {
         public override void Handle(CreateDraftCommand command)
         {
-            var sourceOrganization = Repository.GetOrganization(command.SourceId);
+            var sourceOrganization = Repository.GetOrganization(command.OrganizationId);
             sourceOrganization.CreateDraft();
         }
     }

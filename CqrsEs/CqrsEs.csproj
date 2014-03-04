@@ -33,6 +33,9 @@
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject.Extensions.Conventions">
+      <HintPath>..\packages\Ninject.Extensions.Conventions.3.0.0.11\lib\net45-full\Ninject.Extensions.Conventions.dll</HintPath>
+    </Reference>
     <Reference Include="ReflectionMagic">
       <HintPath>..\packages\ReflectionMagic.2.0.0\lib\net40\ReflectionMagic.dll</HintPath>
     </Reference>
@@ -44,8 +47,11 @@
     <Compile Include="Commands\CreateDraftCommand.cs" />
     <Compile Include="Commands\CreateStructureCommand.cs" />
     <Compile Include="Commands\CreateLevelCommand.cs" />
+    <Compile Include="Commands\OrganizationCommandBase.cs" />
     <Compile Include="Commands\RenameLevelCommand.cs" />
+    <Compile Include="Config\Module.cs" />
     <Compile Include="Domain\DomainEvents.cs" />
+    <Compile Include="Domain\DomainEvent`1.cs" />
     <Compile Include="Domain\DraftCreatedEvent.cs" />
     <Compile Include="Domain\Entity.cs" />
     <Compile Include="Domain\IDomainEvent.cs" />
@@ -60,6 +66,9 @@
     <Compile Include="Domain\StructureCreatedEvent.cs" />
     <Compile Include="Domain\StructureId.cs" />
     <Compile Include="Repository\DomainRepository.cs" />
+    <Compile Include="Repository\EventStore.cs" />
+    <Compile Include="Repository\MissingEntityException.cs" />
+    <Compile Include="Services\CommandBus.cs" />
     <Compile Include="Services\CreateDraftCommandHandler.cs" />
     <Compile Include="Services\CreateLevelCommandHandler.cs" />
     <Compile Include="Services\CreateStructureCommandHandler.cs" />

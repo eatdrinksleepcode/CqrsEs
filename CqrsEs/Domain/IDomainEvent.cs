@@ -1,5 +1,4 @@
-﻿
-namespace CqrsEs
+﻿namespace CqrsEs
 {
     public interface IDomainEvent
     {

@@ -12,12 +12,9 @@ namespace CqrsEs
             Raise(new LevelCreatedEvent(ownerId, id, name));
         }
 
-        public Level(IEnumerable<IDomainEvent> events)
+        public Level(IEnumerable<IDomainEvent<LevelId>> events) 
+            : base(events)
         {
-            foreach (var evt in events)
-            {
-                ApplyLocal(evt);
-            }
         }
 
         public LevelId Id
