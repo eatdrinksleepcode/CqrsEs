@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CqrsEs", "CqrsEs\CqrsEs.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CqrsEs.Tests", "CqrsEs.Tests\CqrsEs.Tests.csproj", "{CF5B67A7-F844-4AE7-A57C-84FBEC2C97C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CqrsEs.Web", "CqrsEs.Web\CqrsEs.Web.csproj", "{C2F0853D-D106-4347-A101-F0CBC9C22375}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CF5B67A7-F844-4AE7-A57C-84FBEC2C97C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF5B67A7-F844-4AE7-A57C-84FBEC2C97C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF5B67A7-F844-4AE7-A57C-84FBEC2C97C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2F0853D-D106-4347-A101-F0CBC9C22375}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2F0853D-D106-4347-A101-F0CBC9C22375}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2F0853D-D106-4347-A101-F0CBC9C22375}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2F0853D-D106-4347-A101-F0CBC9C22375}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
