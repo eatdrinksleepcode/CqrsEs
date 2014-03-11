@@ -1,9 +1,16 @@
-﻿@{
+﻿@model dynamic
+@{
     ViewBag.Title = "Home Page";
 }
 @section scripts
 {
     @Scripts.Render("~/bundles/js")
+
+    <script type="text/javascript">
+        var data = new Data("@Model.SuccessUrl", "@Model.FailureUrl.ToString()");
+        $("#cmdSuccess").on("click", data.doSuccess);
+        $("#cmdFailure").on("click", data.doFailure);
+    </script>
 }
 
 <button id="cmdSuccess">Success</button><button id="cmdFailure">Failure</button><br/>

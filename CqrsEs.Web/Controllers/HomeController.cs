@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
+using CqrsEs.Web.Models;
 
 namespace CqrsEs.Web.Controllers
 {
@@ -11,7 +9,11 @@ namespace CqrsEs.Web.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View(new Data
+            {
+                SuccessUrl = Url.RouteUrl(new { Controller = "Home", Action = "Success" }),
+                FailureUrl = Url.RouteUrl(new { Controller = "Home", Action = "Failure" }),
+            });
         }
 
         public ActionResult Success()

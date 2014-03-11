@@ -1,23 +1,29 @@
-﻿var asyncResult;
+﻿function Data(successUrl, failureUrl) {
 
-var show = function(message) {
-    asyncResult = message;
+    this.successUrl = successUrl;
+    this.failureUrl = failureUrl;
+    this.asyncResult = "";
+
+    this.doSuccess = this.doSuccess.bind(this);
+    this.doFailure = this.doFailure.bind(this);
+};
+
+Data.prototype.show = function (message) {
+    this.asyncResult = message;
     $("#displayResult").html(asyncResult);
 };
 
-var exec = function (url) {
+Data.prototype.exec = function(url) {
+    var show = this.show;
     $.ajax({ url: url })
-        .done(function(data, textStatus, jqXhr) { show(jqXhr.statusText); })
+        .done(function (data, textStatus, jqXhr) { show(jqXhr.statusText); })
         .fail(function (jqXhr) { show(jqXhr.statusText); });
 };
 
-var doSuccess = function() {
-    exec("/Home/Success");
+Data.prototype.doSuccess = function () {
+    this.exec(this.successUrl);
 };
 
-var doFailure = function() {
-    exec("/Home/Failure");
+Data.prototype.doFailure = function () {
+    this.exec(this.failureUrl);
 };
-
-$("#cmdSuccess").on("click", doSuccess);
-$("#cmdFailure").on("click", doFailure);
