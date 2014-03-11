@@ -3,23 +3,31 @@
 });
 
 it("Success should succeed", function () {
+
+    var resultText = "test call succeeded";
+
     $.mockjax({
         url: "/Home/Success",
-        status: 200
+        status: 200,
+        statusText: resultText
     });
 
     doSuccess();
 
-    expect(asyncResult).toBe("Success!");
+    expect(asyncResult).toBe(resultText);
 });
 
 it("Failure should fail", function () {
+
+    var resultText = "test call failed";
+
     $.mockjax({
         url: "/Home/Failure",
-        status: 400
+        status: 400,
+        statusText: resultText
     });
 
     doFailure();
 
-    expect(asyncResult).toBe("Failure!");
+    expect(asyncResult).toBe(resultText);
 });

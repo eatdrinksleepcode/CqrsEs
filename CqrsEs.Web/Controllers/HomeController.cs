@@ -16,12 +16,12 @@ namespace CqrsEs.Web.Controllers
 
         public ActionResult Success()
         {
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
+            return new HttpStatusCodeResult(HttpStatusCode.OK, "Success!");
         }
 
         public ActionResult Failure()
         {
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Failure!");
         }
     }
 }

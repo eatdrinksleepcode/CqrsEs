@@ -1,9 +1,14 @@
 ﻿var asyncResult;
 
+var show = function(message) {
+    asyncResult = message;
+    $("#displayResult").html(asyncResult);
+};
+
 var exec = function (url) {
     $.ajax({ url: url })
-        .done(function() { asyncResult = "Success!"; })
-        .fail(function() { asyncResult = "Failure!"; });
+        .done(function(data, textStatus, jqXhr) { show(jqXhr.statusText); })
+        .fail(function (jqXhr) { show(jqXhr.statusText); });
 };
 
 var doSuccess = function() {
